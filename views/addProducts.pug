@@ -1,11 +1,29 @@
 html
   head
     title= title
+    style. 
+        form{
+            margin :20px auto;
+            padding : 10px 20px;
+            width : 300px;
+            background-color : #D3D3D3;
+            text-align : center 
+          }
+          input{
+            margin-bottom : 10px;
+            line-height : 20px;
+            font-size: 15px;
+            width : 100%;
+          }
+          h3{
+            text-align : center
+          }
   body
         form(id="addcategory" action="/addcategory" method="post")
-            input(type="text", name="name", value="", placeholder="Ad" required)
-            br
+            h3 Products Ekle
             input(type="text", name="id", value="", placeholder="Id girin")
+            br
+            input(type="text", name="name", value="", placeholder="Ad" required)
             br
             input(type="text", name="unitPrice", value="", placeholder="UnitPrice girin")
             input(type="submit" value="Add")

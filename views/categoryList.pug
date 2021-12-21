@@ -11,33 +11,81 @@ html
         background-color : blue;
         text-decoration : none;
         color : white;
-        margin-top : 10px;
-        margin-right : 10px;
+        margin : 10px 10px 10px 0;
+        
       }
       .hover:hover{
-        background-color : green;
+          background-color : green;
       }
       .delete{
-        background-color : red;
+          background-color : red;
       }
-    
-  body
-    table
-        tr 
-            th Id 
-            th Name 
-            th UnitPrice
+      .container{
+          width : 500px;
+          padding : 5px;
+          background-color : #D3D3D3;
+          margin: 0 auto;
+          text-align:center;
+      }
+      table{
+        width : 100%;
+        text-align:center;
+        background-color : #D3D3D3;
+        
 
-        each item in data
-            tr  
-                if item.unitPrice>20
-                    td.red= item.id 
-                    td.red= item.name 
-                    td.red= item.unitPrice
-                else 
-                    td= item.id 
-                    td= item.name 
-                    td= item.unitPrice
-    a(class='button hover' href='/updateProducts') Update  
-    a(class='button delete' href='/deleteProducts') Delete
+      }
+      th:first-child{
+        width : 6%;
+      }
+      th{
+        width:18%;
+      }
+      .name{
+        width: 40%;
+      }
+      h2{
+        margin-bottom:5px;
+      }
+    script
+            myFunction(id)
+                  if (true)
+                      alert('Merhaba')
+                  else
+                      alert('Merhaba')
+  body
+    div.container
+        h2 Products
+        a(class='button hover' href=`/addProducts`) Add Product
+        
+        table
+            tr 
+                th Id 
+                th.name Name 
+                th UnitPrice
+                th Update 
+                th Delete
+            each item in data
+                tr  
+                    if item.unitPrice>20
+                        td.red= item.id 
+                        td.red= item.name 
+                        td.red= item.unitPrice
+                        td
+                          a(class='button hover' href=`/updateProducts/${item.id}`) Update
+                        td 
+                          a(class='button delete' href=`/deleteProducts/${item.id}`) Delete
+                    else  
+                        td= item.id 
+                        td= item.name 
+                        td= item.unitPrice
+                        td
+                          a(class='button hover' href=`/updateProducts/${item.id}`) Update
+                        td 
+                          a(class='button delete' href=`/deleteProducts/${item.id}`) Delete
+        
+                              
+           
+
+     
+                         
     

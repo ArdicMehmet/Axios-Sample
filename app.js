@@ -21,18 +21,14 @@ app.get('/getAll', (req,res)=>{
 app.get('/addProducts',(req,res)=>{
     res.render('addProducts')
 })
-app.get('/deleteProducts',(req,res)=>{
-    res.render('deleteProducts')
+app.get('/deleteProducts/:id',async (req,res)=>{
+    await axios.delete(`https://northwind.vercel.app/api/products/${req.params.id}`);
+    res.redirect('/getAll')
 })
-app.get('/updateProducts',(req,res)=>{
-    res.render('updateProducts')
+app.get('/updateProducts/:id',(req,res)=>{
+    res.render('updateProducts',{updateId : req.params.id})
 })
 
-app.post('/deletecategory', (req,res)=>{
-    axios.delete(`https://northwind.vercel.app/api/products/${req.body.id}`);
-    res.redirect('/getAll')
-    
-})
 app.post('/addcategory', (req, res) => {
 
     const webApiUrl = 'https://northwind.vercel.app/api/products';
@@ -50,7 +46,7 @@ app.post('/addcategory', (req, res) => {
 app.post('/updateCategory',async (req,res)=>{
     
     resourceURL ='https://northwind.vercel.app/api/products';
-    await axios.put(`${resourceURL}/${req.body.id}`, {name :req.body.name,unitPrice : req.body.unitPrice});
+    await axios.put(`${resourceURL}/${req.body.id}`, {name :req.body.name, unitPrice : req.body.unitPrice});
     res.redirect('/getAll')
 })
 
