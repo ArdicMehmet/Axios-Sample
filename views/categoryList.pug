@@ -18,7 +18,10 @@ html
           background-color : green;
       }
       .delete{
+
           background-color : red;
+          appearance: none;
+          border: 1px solid red;
       }
       .container{
           width : 500px;
@@ -46,26 +49,29 @@ html
       h2{
         margin-bottom:5px;
       }
-    script
-            myFunction(id)
-                  if (true)
-                      alert('Merhaba')
-                  else
-                      alert('Merhaba')
-  body
+    script. 
+      function delete(id){   
+        if (confirm('Seçilen veri silinsin mi ?') == true) {
+             window.location.href=`/deleteProducts/${id}`
+        }     
+      }
+  body            
     div.container
         h2 Products
         a(class='button hover' href=`/addProducts`) Add Product
-        
+    
         table
             tr 
+
                 th Id 
                 th.name Name 
                 th UnitPrice
                 th Update 
                 th Delete
+
             each item in data
                 tr  
+
                     if item.unitPrice>20
                         td.red= item.id 
                         td.red= item.name 
@@ -73,15 +79,17 @@ html
                         td
                           a(class='button hover' href=`/updateProducts/${item.id}`) Update
                         td 
-                          a(class='button delete' href=`/deleteProducts/${item.id}`) Delete
+                          input(class="delete button",type="button",value = "Delete", onclick = 'delete(' + item.id + ')') 
+                                
                     else  
+
                         td= item.id 
                         td= item.name 
                         td= item.unitPrice
                         td
                           a(class='button hover' href=`/updateProducts/${item.id}`) Update
                         td 
-                          a(class='button delete' href=`/deleteProducts/${item.id}`) Delete
+                          input(class="delete button",type="button",value = "Delete" ,onclick = 'delete(' + item.id + ')') 
         
                               
            
