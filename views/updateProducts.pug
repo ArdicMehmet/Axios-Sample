@@ -1,0 +1,11 @@
+html
+  head
+    title= title
+  body
+        form(id="updateCategory" action="/updateCategory" method="post")
+            input(type="text", name="id", value="", placeholder="Guncellenecek nesne Id'si girin")
+            br
+            input(type="text", name="name", value="", placeholder="Ad" required)
+            br
+            input(type="text", name="unitPrice", value="", placeholder="UnitPrice girin")
+            input(type="submit" value="Update")

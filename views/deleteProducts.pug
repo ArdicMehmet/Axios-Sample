@@ -1,0 +1,8 @@
+html
+  head
+    title= title
+  body
+        form(id="deletecategory" action="/deletecategory" method="post")
+            input(type="text", name="id", value="", placeholder="id" required)
+            br
+            input(type="submit" value="Delete")
