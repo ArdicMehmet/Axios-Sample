@@ -50,7 +50,7 @@ html
         margin-bottom:5px;
       }
     script. 
-      function delete(id){   
+      function deleteProduct(id){   
         if (confirm('Seçilen veri silinsin mi ?') == true) {
              window.location.href=`/deleteProducts/${id}`
         }     
@@ -79,7 +79,7 @@ html
                         td
                           a(class='button hover' href=`/updateProducts/${item.id}`) Update
                         td 
-                          input(class="delete button",type="button",value = "Delete", onclick = 'delete(' + item.id + ')') 
+                          input(class="delete button",type="button",value = "Delete", onclick = `deleteProduct(${item.id})`) 
                                 
                     else  
 
@@ -89,7 +89,7 @@ html
                         td
                           a(class='button hover' href=`/updateProducts/${item.id}`) Update
                         td 
-                          input(class="delete button",type="button",value = "Delete" ,onclick = 'delete(' + item.id + ')') 
+                          input(class="delete button",type="button",value = "Delete" ,onclick = `deleteProduct(${item.id})`) 
         
                               
            
