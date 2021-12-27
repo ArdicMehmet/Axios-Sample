@@ -29,17 +29,20 @@ app.get('/updateProducts/:id',(req,res)=>{
     res.render('updateProducts',{updateId : req.params.id})
 })
 
-app.post('/addcategory', (req, res) => {
+app.post('/addProducts', (req, res) => {
 
     const webApiUrl = 'https://northwind.vercel.app/api/products';
 
     axios.post(webApiUrl, {
-        name: req.body.name,
         id: req.body.id,
+        name: req.body.name,
         unitPrice :req.body.unitPrice
     })
         .then(function (response) {
             res.redirect('/getAll')
+        })
+        .catch((err)=>{
+            res.status(400).json({msg : " Girilen id sistemde mevcut, ekleme yapılamadı ! "})
         })
 
 })

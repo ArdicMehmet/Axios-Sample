@@ -19,11 +19,11 @@ html
             text-align : center
           }
   body
-        form(id="addcategory" action="/addcategory" method="post")
+        form(id="addcategory" action="/addProducts" method="post")
             h3 Products Ekle
-            input(type="text", name="id", value="", placeholder="Id girin")
+            input(type="text", name="id", placeholder="Id girin")
             br
-            input(type="text", name="name", value="", placeholder="Ad" required)
+            input(type="text", name="name", placeholder="Ad" required)
             br
-            input(type="text", name="unitPrice", value="", placeholder="UnitPrice girin")
+            input(type="text", name="unitPrice", placeholder="UnitPrice girin")
             input(type="submit" value="Add")
